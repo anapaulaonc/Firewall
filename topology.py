@@ -8,10 +8,7 @@ class CustomTopology:
         self.create_topology()
 
     def create_topology(self):
-        c0 = self.net.addController('c0')
-
-        # Adiciona o switch central (controlador)
-        s0 = self.net.addSwitch('s0', protocols='OpenFlow13')
+        c0 = self.net.addController('c0', controller=Controller)
 
         # Adiciona quatro switches
         s1 = self.net.addSwitch('s1', protocols='OpenFlow13')
@@ -32,22 +29,22 @@ class CustomTopology:
         h10 = self.net.addHost('h10')
 
         # Conecta hosts ao switch central (controlador)
-        self.net.addLink(h1, s0)
-        self.net.addLink(h2, s0)
-        self.net.addLink(h3, s0)
-        self.net.addLink(h4, s0)
-        self.net.addLink(h5, s0)
-        self.net.addLink(h6, s0)
-        self.net.addLink(h7, s0)
-        self.net.addLink(h8, s0)
-        self.net.addLink(h9, s0)
-        self.net.addLink(h10, s0)
+        self.net.addLink(h1, s1)
+        self.net.addLink(h2, s2)
+        self.net.addLink(h3, s2)
+        self.net.addLink(h4, s3)
+        self.net.addLink(h5, s3)
+        self.net.addLink(h6, s3)
+        self.net.addLink(h7, s4)
+        self.net.addLink(h8, s4)
+        self.net.addLink(h9, s4)
+        self.net.addLink(h10, s4)
 
-        # Conecta os switches ao switch central (controlador)
-        self.net.addLink(s1, s0)
-        self.net.addLink(s2, s0)
-        self.net.addLink(s3, s0)
-        self.net.addLink(s4, s0)
+        # Conecta os switches à controladora
+        self.net.addLink(s1, c0)
+        self.net.addLink(s2, c0)
+        self.net.addLink(s3, c0)
+        self.net.addLink(s4, c0)
 
     def start_topology(self):
         self.net.start()
