@@ -59,11 +59,11 @@ clear mininet cash
 
 # Run Project
 
-Now, copy blocker.py file into `/pox/ext`
+Now, copy security_app.py file into `/pox/ext`
 
 ```
 $ cd pox
-$ python3 ./pox.py forwarding.l2_learning blocker
+$ python3 ./pox.py forwarding.l2_learning security_app
 ```
 
 inside the project folder run for without security app rules:
