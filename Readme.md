@@ -59,12 +59,11 @@ clear mininet cash
 
 # Run Project
 
-in another terminal run, but inside this project directorry run:
+Now, copy blocker.py file into `/pox/ext`
 
 ```
-$ git clone https://github.com/noxrepo/pox
 $ cd pox
-$ python3 ./pox.py forwarding.l2_learning
+$ python3 ./pox.py forwarding.l2_learning blocker
 ```
 
 inside the project folder run for without security app rules:
@@ -73,14 +72,8 @@ inside the project folder run for without security app rules:
 inside the project folder run for security app rules remote controller:
 `$ sudo mn --custom topology.py --topo customtopology --controller=remote,ip=127.0.0.1,port=6633`
 
-inside the project folder run for use security app rules:
-
-`$ sudo mn --custom topology.py,security_app.py --topo customtopology --controller=securityapp`
-
-another way to run is running as python script:
-`sudo python3 topology.py``
-
 # References
 
 - [walkthrough mininet](http://mininet.org/walkthrough/)
+- [openFlow docs](https://noxrepo.github.io/pox-doc/html/#)
 - [drive document](https://docs.google.com/document/d/1f0QPhMonsCHjrotPNxG3TVrlpLRyDazT0nE1HL6KgOM/edit)
