@@ -7,6 +7,8 @@ class CustomTopology(Topo):
     def build(self):
         #c0 = self.net.addController('c0', controller=Controller)
 
+        root = self.addSwitch('s0')
+
         # Adiciona quatro switches
         s1 = self.addSwitch('s1')
         s2 = self.addSwitch('s2')
@@ -36,12 +38,12 @@ class CustomTopology(Topo):
         self.addLink(h8, s4)
         self.addLink(h9, s4)
         self.addLink(h10, s4)
-
-        # Conecta os switches à controladora
-        #self.addLink(s1, c0)
-        #self.addLink(s2, c0)
-        #self.addLink(s3, c0)
-        #self.addLink(s4, c0)
+        
+        #Conecta switches aos switches
+        self.addLink(root, s1)
+        self.addLink(root, s2)
+        self.addLink(root, s3)
+        self.addLink(root, s4)
 
 topos = { 'customtopology': CustomTopology }
 
