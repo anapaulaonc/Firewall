@@ -59,8 +59,15 @@ clear mininet cash
 
 # Run Project
 
+in another terminal run:
+
+```
+$ cd Pox
+$ python3 ./pox.py forwarding.l2_learning
+```
+
 inside the project folder run:
-`sudo mn --custom topology.py --topo customtopology --controller=remote,ip=127.0.0.1,port=6633`
+`$ sudo mn --custom topology.py --topo customtopology --controller=remote,ip=127.0.0.1,port=6633`
 
 # References
 
