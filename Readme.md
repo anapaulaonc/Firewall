@@ -48,7 +48,7 @@ $ sudo service openvswitch-switch start
 - if wireshark not installed and references controllers and switches
 
 ```
-$git clone https://github.com/mininet/mininet
+$ git clone https://github.com/mininet/mininet
 $ mininet/util/install.sh -fw
 ```
 
@@ -59,12 +59,21 @@ clear mininet cash
 
 # Run Project
 
-inside the project folder run:
-`sudo mn --custom topology.py --topo customtopo`
+Now, copy security_app.py file into `/pox/ext`
+
+```
+$ cd pox
+$ python3 ./pox.py forwarding.l2_learning security_app
+```
+
+inside the project folder run for without security app rules:
+`$ sudo mn --custom topology.py --topo customtopology`
+
+inside the project folder run for security app rules remote controller:
+`$ sudo mn --custom topology.py --topo customtopology --controller=remote,ip=127.0.0.1,port=6633`
 
 # References
 
 - [walkthrough mininet](http://mininet.org/walkthrough/)
+- [openFlow docs](https://noxrepo.github.io/pox-doc/html/#)
 - [drive document](https://docs.google.com/document/d/1f0QPhMonsCHjrotPNxG3TVrlpLRyDazT0nE1HL6KgOM/edit)
-- [install python](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-22-04-server)
-- [videos Reference](https://www.youtube.com/playlist?list=PLpherdrLyny8YN4M24iRJBMCXkLcGbmhY)
